@@ -16,5 +16,12 @@ pipeline {
         echo 'Fait'
       }
     }
+    stage('Editeur') {
+      steps {
+        node(label: 'master')
+        sh 'ls -lR'
+        isUnix()
+      }
+    }
   }
 }
