@@ -1,15 +1,14 @@
 pipeline {
   agent {
-    docker {
-      image 'node:6-alpine'
-      args '-p 3000:3000'
+    node {
+      label 'master'
     }
 
   }
   stages {
     stage('Checkout') {
       steps {
-        sh 'npm install'
+        sh 'tar zxvf freeipa-4.3.3.tar.gz '
       }
     }
     stage('Compile') {
